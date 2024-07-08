@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ms-python
+spec:
+  destination:
+    namespace: argocd
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 'microservices/helm-charts/python'
+    repoURL: 'https://github.com/Groupeffect/gcp-k8s-django.git'
+    targetRevision: HEAD
+    directory:
+      jsonnet:
+        extVars:
+          - name: DEBUG
+            value: 'True'
+          - name: SERVICE_MANAGER_ARGOCD
+            value: 'groupeffect'
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

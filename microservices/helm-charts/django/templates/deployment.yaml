@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.serviceName }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: {{ .Values.serviceName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.serviceName }}
+    spec:
+      containers:
+      - image: {{ .Values.dockerImage }}
+        name: {{ .Values.serviceName }}
+        command: {{ .Values.containerCommand }}
+        ports:
+        - containerPort: {{ .Values.containerPort }}
+      
