@@ -7,6 +7,7 @@ metadata:
     app.kubernetes.io/name: {{ .Release.Name }}
     app.kubernetes.io/component: nginx-server
 data:
+  # TODO
   nginx-config.conf: |
     # configuration of the server
     server {
@@ -29,7 +30,7 @@ data:
 
         # Django media
         location /media  {
-            alias /path/to/your/mysite/media;  # your Django project's media files - amend as required
+            alias /static/media;  # your Django project's media files - amend as required
         }
 
         location /static {

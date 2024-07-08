@@ -1,8 +1,8 @@
 django:
   site_name: null
   image:
-    repo: null
-    tag: null
+    repo: https://github.com/Groupeffect/gcp-k8s-django.git
+    tag: development-alpha
   exporter:
     image: null
   replicas: 1

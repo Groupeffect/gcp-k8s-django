@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-python
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: ms-python
+  template:
+    metadata:
+      labels:
+        app: ms-python
+    spec:
+      containers:
+      - image: docker.io/python:3.10
+        name: ms-python
+        command: ["python","-m","http.server", "8000"]
+        ports:
+        - containerPort: 8000
+      

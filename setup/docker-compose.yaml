@@ -1,0 +1,10 @@
+services:
+  gcpdevcli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+      - ../click-to-deploy:/click-to-deploy
+      - ./helm-binary/helm:/usr/local/bin/helm
+    command: bash default.sh
