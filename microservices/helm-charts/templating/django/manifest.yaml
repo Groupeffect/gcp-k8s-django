@@ -1,0 +1,35 @@
+---
+# Source: django/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-django
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: ms-django
+---
+# Source: django/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-django
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: ms-django
+  template:
+    metadata:
+      labels:
+        app: ms-django
+    spec:
+      containers:
+      - image: docker.io/groupeffect/django:primary
+        name: ms-django
+        command: [python -m http.server 8000]
+        ports:
+        - containerPort: 8000

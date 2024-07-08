@@ -1,0 +1,12 @@
+---
+# Source: django/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-django
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: ms-django
