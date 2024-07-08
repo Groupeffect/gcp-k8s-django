@@ -4,4 +4,6 @@ RUN pip install --upgrade pip
 RUN pip install Django djangorestframework django-cors-headers gunicorn djangorestframework-simplejwt psycopg2-binary django-filter
 WORKDIR /app
 COPY start.sh ./start.sh
-
+EXPOSE 8000
+EXPOSE 8001
+EXPOSE 8002

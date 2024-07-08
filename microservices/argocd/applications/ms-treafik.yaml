@@ -7,8 +7,8 @@ spec:
     namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
-    path: traefik
-    repoURL: 'https://github.com/traefik/traefik-helm-chart.git'
+    path: microservices/helm-charts/traefik
+    repoURL: 'https://github.com/Groupeffect/gcp-k8s-django.git'
     targetRevision: HEAD
     helm:
       valueFiles:
