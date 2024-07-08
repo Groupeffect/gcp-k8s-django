@@ -19,4 +19,5 @@ spec:
         name: ms-django
         command: ["python", "-m", "http.server", "8000"]
         ports:
-        - containerPort: 8000
+          - name: web
+            containerPort: 8000
