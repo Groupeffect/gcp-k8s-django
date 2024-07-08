@@ -17,6 +17,6 @@ spec:
       containers:
       - image: docker.io/groupeffect/django:primary
         name: ms-django
-        command: [python -m http.server 8000]
+        command: ["python", "-m", "http.server", "8000"]
         ports:
         - containerPort: 8000
